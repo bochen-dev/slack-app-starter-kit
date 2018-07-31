@@ -1,5 +1,6 @@
 {
-  "prettier.trailingComma": "all",
+  "prettier.arrowParens": "always",
+  "prettier.semi": true,
   "prettier.singleQuote": true,
-  "files.eol": "\n"
+  "prettier.trailingComma": "all"
 }
