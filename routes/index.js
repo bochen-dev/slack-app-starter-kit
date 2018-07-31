@@ -9,20 +9,20 @@ router.post('/echo', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.json({
     response_type: 'ephemeral',
-    text: `${req.body.text}`
+    text: `${req.body.text}`,
   });
 });
 
 router.post('/vote', (req, res) => {
   let { text } = req.body;
   text = text.split('or');
-  const actions = text.map(e => {
-    e = e.trim().replace(/"/g, '');
+  const actions = text.map((e) => {
+    const action = e.trim().replace(/"/g, '');
     return {
-      name: e,
-      text: e,
+      name: action,
+      text: action,
       type: 'button',
-      value: e
+      value: action,
     };
   });
 
@@ -34,9 +34,9 @@ router.post('/vote', (req, res) => {
         callback_id: 'command/vote',
         color: '#2c3e50',
         attachment_type: 'default',
-        actions
-      }
-    ]
+        actions,
+      },
+    ],
   });
 });
 

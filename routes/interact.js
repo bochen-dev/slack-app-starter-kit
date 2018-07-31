@@ -13,14 +13,14 @@ router.post('/', (req, res) => {
     case 'command/vote':
       res.json({
         response_type: 'ephemeral',
-        text: `Your selection : ${action.value}`
+        text: `Your selection : ${action.value}`,
       });
       break;
 
     default:
       res.json({
         response_type: 'ephemeral',
-        text: `Nothing...`
+        text: `Nothing...`,
       });
       break;
   }
