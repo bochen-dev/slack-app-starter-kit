@@ -10,10 +10,13 @@
   "author": "code.bochen@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3"
   },
   "devDependencies": {
-    "body-parser": "^1.18.3",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
     "nodemon": "^1.18.3"
   }
 }
