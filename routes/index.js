@@ -1,6 +1,5 @@
 const express = require('express');
-const config = require('../config');
-const auth = require('./middleware/auth');
+const auth = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -11,6 +10,33 @@ router.post('/echo', (req, res) => {
   res.json({
     response_type: 'ephemeral',
     text: `${req.body.text}`
+  });
+});
+
+router.post('/vote', (req, res) => {
+  let { text } = req.body;
+  text = text.split('or');
+  const actions = text.map(e => {
+    e = e.trim().replace(/"/g, '');
+    return {
+      name: e,
+      text: e,
+      type: 'button',
+      value: e
+    };
+  });
+
+  res.setHeader('Content-Type', 'application/json');
+  res.json({
+    attachments: [
+      {
+        text: 'Choose one',
+        callback_id: 'command/vote',
+        color: '#2c3e50',
+        attachment_type: 'default',
+        actions
+      }
+    ]
   });
 });
 

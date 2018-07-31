@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require('./routes/index');
+const interact = require('./routes/interact');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use('/interact', interact);
 app.use('/', routes);
 
 app.get('/', (req, res) => {
